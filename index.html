@@ -12,12 +12,6 @@
       font-weight: 300;
       font-family: 'Open Sans', sans-serif;
       color: #121212;
-      /* cursor: url(https://rsha256.github.io/teapot-clear32.png), default!important;
-      cursor: url(https://rsha256.github.io/teapot-clear32.png), pointer!important; */
-      cursor: url(https://rsha256.github.io/dragon-clear32.png), default!important;
-      cursor: url(https://rsha256.github.io/dragon-clear32.png), pointer!important;
-      /* cursor: url(https://rsha256.github.io/cloth-clear-32.png), default!important;
-      cursor: url(https://rsha256.github.io/cloth-clear-32.png), pointer!important; */
     }
     h1, h2, h3, h4 {
       font-family: 'Source Sans Pro', sans-serif;
@@ -67,9 +61,58 @@
 <body>
 
   <h1 align="middle">CS 184 | Spring 2024</h1>
-  <h1 align="middle">Final Project: Simulating Musculoskeletal Movement</h1>
+  <h1 align="middle">Final Project: Simulating Musculoskeletal Movement Milestone</h1>
   <h2 align="middle">An Le, Jackson Wei, Stefan Pham, William Yau</h2>
   <br>
 
+  <a>
+   <h2 align="middle">Progress</h2>
+  </a>
+
+  <b>
+    Bones
+  </b>
+  <p>
+    Most of the progress made by this milestone is in our bone structures, having created the data structure and ideation about its mechanics. A bone is defined by two points in space, bone density, and neighbor bone that it will use as a pivot 
+    (being one of its endpoints) to rotate about. In other words, the bones will behave like a linked chain of paperclips, each connected to one another at its endpoints and free to rotate about it.
+  </p>
+  <p>
+    For the dynamics of the bone, it will behave similarly to the point masses seen in homework 4 
+    where instead the bone will experience torques and act as a rigid body (moment of inertia being the same as a rod’s). The torques acting on the bone are also stored in this structure are the weight of the bone and the muscles connected to it at various points along the bone.
+  </p>
+  <p>
+    Unfortunately, we are unable to show a demonstration of this linked list of bones due to progress on the visualization via OpenGL being stalled for the time being.
+  </p>
+
+  <b>
+    Muscles
+  </b>
+
+  <p>
+    Muscles are being modelled as a series of three spring structures, two ideal springs representing the tendons on either side of the muscle tissue. These will be what connects the muscle with the bone structures, each of the tendons being pinned to a different muscle.
+    Muscle contraction and relaxation will take place in this middle muscle tissue based on the Hill Model of the muscle.
+  </p>
+
+  <p>
+    As such, muscles are represented with four pivotal points being the endpoints of the muscle tissue and tendons. These will be connected with springs from assignment 4 to capture the Hill Model's description of muscle movement.
+  </p>
+
+  <b>
+    Final Simulation
+  </b>
+
+  <p>
+    The final goal for the project is to model the arm doing exercises such as a bicep curl. For this, we have decided to model arm muscles including the tricep, biceps (short and long head), and two-three forearm muscles. The bones include
+    humerus, ulna, and radius. For motivating the movement, we've decided to go along the route of primarily focus on a fixed movement of a bicep curl and viewing the corresponding muscle activations that occur naturally with our simulation. The second path
+    is to activate certain movements which motivates movement in the arm; this is more ambitious pathway that will be taken if time permits as it will demand an interactive element and corresponding GUI support.
+  </p>
+
+  <a href="https://cs184.eecs.berkeley.edu/sp23/docs/proj4-part-1">
+  <h2 align="middle">Milestone Video</h2>
+  </a>
+
+  <a href="https://docs.google.com/presentation/d/192f7V29zsIqv77N3Dqx-3t1BEPBwR-WIxlA-F-xzm9M/edit?usp=sharing">
+  <h2 align="middle">Presentation Slides</h2>
+  </a>
 </body>
 </html>
